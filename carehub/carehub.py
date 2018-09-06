@@ -12,10 +12,10 @@ def login():
     return render_template('login.html')
 
 
+@application.route('/test')
 def careplan():
     return render_template('careplan.html')
 
 
-application.add_url_rule('/login', view_func=login)
-application.add_url_rule('/test', view_func=careplan)
-
+# application.add_url_rule('/login', view_func=login)
+# application.add_url_rule('/test', view_func=careplan)
