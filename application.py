@@ -9,6 +9,10 @@ def say_hello(username="World"):
 def login():
     return render_template('login.html')
 
+
+def careplan():
+    return render_template('careplan.html')
+
 # EB looks for an 'application' callable by default.
 application = Flask(__name__)
 
@@ -28,12 +32,14 @@ instructions = '''
 home_link = '<p><a href="/">Back</a></p>\n'
 footer_text = '</body>\n</html>'
 
+application.add_url_rule('/login', view_func=login)
+
+application.add_url_rule('/test', view_func=careplan)
 
 # add a rule for the index page.
 application.add_url_rule('/', 'index', (lambda: header_text +
     say_hello() + instructions + footer_text))
 
-application.add_url_rule('/<username>', view_func=login)
 
 # run the app.
 if __name__ == "__main__":
